@@ -123,6 +123,39 @@ let upstream =
 
 let overrides = {=}
 
-let additions = {=}
+let additions =
+    { aws-core =
+        { dependencies = [ "console", "effect", "psci-support", "spec-discovery" ]
+        , repo = "https://github.com/rinse/purescript-aws-core.git"
+        , version = "master"
+        }
+    , dynamodb-plumbing =
+        { dependencies =
+            [ "aff-promise"
+            , "aws-core"
+            , "console"
+            , "effect"
+            , "foreign"
+            , "foreign-generic"
+            , "profunctor"
+            , "psci-support"
+            ]
+        , repo = "https://github.com/rinse/purescript-dynamodb-plumbing.git"
+        , version = "master"
+        }
+    , map =
+        { dependencies =
+            [ "console"
+            , "effect"
+            , "lists"
+            , "maybe"
+            , "ordered-collections"
+            , "psci-support"
+            , "transformers"
+            ]
+        , repo = "https://github.com/rinse/purescript-map.git"
+        , version = "master"
+        }
+    }
 
 in  upstream // overrides // additions
